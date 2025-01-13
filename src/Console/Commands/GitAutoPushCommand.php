@@ -4,9 +4,13 @@ namespace Diffrentdigital\GitAutoPush\Console\Commands;
 
 use Illuminate\Console\Command;
 use Symfony\Component\Process\Process;
+use Statamic\Console\RunsInPlease;
 
 class GitAutoPushCommand extends Command
 {
+
+    use RunsInPlease;
+    
     protected $signature = 'git:auto-push';
     protected $description = 'Automatically add, commit, and push changes to the git repository every 24 hours';
 
@@ -15,7 +19,7 @@ class GitAutoPushCommand extends Command
         parent::__construct();
     }
 
-    public function handle()
+    public function handle(): void
     {
         $this->info('Starting git auto-push process...');
 

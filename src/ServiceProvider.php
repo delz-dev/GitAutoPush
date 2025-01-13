@@ -2,10 +2,9 @@
 
 namespace Diffrentdigital\GitAutoPush;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Console\Scheduling\Schedule;
+use Statamic\Providers\AddonServiceProvider;
 
-class GitAutoPushServiceProvider extends ServiceProvider
+class ServiceProvider extends AddonServiceProvider
 {
     public function register()
     {
@@ -16,7 +15,7 @@ class GitAutoPushServiceProvider extends ServiceProvider
         ]);
     }
 
-    public function boot()
+    public function bootAddon()
     {
         $this->publishes([
             __DIR__.'/../config/git-auto-push.php' => config_path('git-auto-push.php'),
