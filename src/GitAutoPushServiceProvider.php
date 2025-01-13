@@ -3,6 +3,7 @@
 namespace Diffrentdigital\GitAutoPush;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Console\Scheduling\Schedule;
 use Diffrentdigital\GitAutoPush\Console\Commands\GitAutoPushCommand;
 
 class GitAutoPushServiceProvider extends ServiceProvider
@@ -25,7 +26,7 @@ class GitAutoPushServiceProvider extends ServiceProvider
         // Schedule the command to run every 24 hours if the environment is enabled
         if (in_array($this->app->environment(), config('git-auto-push.enabled_environments', []))) {
             $this->app->booted(function () {
-                $schedule = $this->app->make(\Illuminate\Console\Scheduling\Schedule::class);
+                $schedule = $this->app->make(Schedule::class);
                 $schedule->command('git:auto-push')->daily();
             });
         }

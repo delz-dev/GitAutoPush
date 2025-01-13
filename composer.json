@@ -8,6 +8,11 @@
       "Diffrentdigital\\GitAutoPush\\": "src"
     }
   },
+  "config": {
+    "allow-plugins": {
+      "pixelfear/composer-dist-plugin": true
+    }
+  },
   "require": {
     "php": ">=8.0",
     "statamic/cms": "^5.0",
