@@ -4,7 +4,6 @@ namespace Diffrentdigital\GitAutoPush;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Console\Scheduling\Schedule;
-use Diffrentdigital\GitAutoPush\Console\Commands\GitAutoPushCommand;
 
 class GitAutoPushServiceProvider extends ServiceProvider
 {
