@@ -1,7 +1,6 @@
 {
   "name": "diffrentdigital/git-auto-push",
   "description": "A Statamic addon to automatically git add, commit, and push every 24 hours.",
-  "type": "statamic-addon",
   "license": "MIT",
   "autoload": {
     "psr-4": {
