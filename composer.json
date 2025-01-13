@@ -1,0 +1,27 @@
+{
+  "name": "diffrentdigital/git-auto-push",
+  "description": "A Statamic addon to automatically git add, commit, and push every 24 hours.",
+  "type": "statamic-addon",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Diffrentdigital\\GitAutoPush\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=8.0",
+    "statamic/cms": "^5.0",
+    "symfony/process": "^6.0"
+  },
+  "extra": {
+    "statamic": {
+      "name": "Git Auto Push",
+      "description": "Automatically commit and push changes to Git."
+    }
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "@php artisan vendor:publish --tag=git-auto-push-config --force"
+    ]
+  }
+}
