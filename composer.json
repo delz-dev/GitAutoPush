@@ -21,6 +21,11 @@
     "statamic": {
       "name": "Git Auto Push",
       "description": "Automatically commit and push changes to Git."
+    },
+    "laravel": {
+      "providers": [
+        "Diffrentdigital\\GitAutoPush\\ServiceProvider"
+      ]
     }
   },
   "scripts": {
