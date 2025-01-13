@@ -12,7 +12,7 @@ class GitAutoPushServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__.'/../config/git-auto-push.php', 'git-auto-push');
 
         $this->commands([
-            GitAutoPushCommand::class,
+            Commands\GitAutoPushCommand::class,
         ]);
     }
 
@@ -23,12 +23,11 @@ class GitAutoPushServiceProvider extends ServiceProvider
         ]);
 
         // Schedule the command to run every 24 hours if the environment is enabled
-        $this->app->booted(function () {
-            $enabledEnvironments = config('git-auto-push.enabled_environments', []);
-            if (in_array($this->app->environment(), $enabledEnvironments)) {
+        if (in_array($this->app->environment(), config('git-auto-push.enabled_environments', []))) {
+            $this->app->booted(function () {
                 $schedule = $this->app->make(\Illuminate\Console\Scheduling\Schedule::class);
                 $schedule->command('git:auto-push')->daily();
-            }
-        });
+            });
+        }
     }
 }
