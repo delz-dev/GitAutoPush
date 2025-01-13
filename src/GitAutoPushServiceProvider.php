@@ -23,6 +23,10 @@ class GitAutoPushServiceProvider extends ServiceProvider
             __DIR__.'/../config/git-auto-push.php' => config_path('git-auto-push.php'),
         ]);
 
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'git-auto-push');
+
+        $this->loadRoutesFrom(__DIR__.'/../routes/cp.php');
+
         // Schedule the command to run every 24 hours if the environment is enabled
         if (in_array($this->app->environment(), config('git-auto-push.enabled_environments', []))) {
             $this->app->booted(function () {
